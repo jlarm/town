@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace Database\Seeders;
 
-use App\Models\User;
+use App\Models\Category;
+use App\Models\Location;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -15,11 +16,13 @@ final class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        $categories = Category::factory(5)->create();
+        $locations = Location::factory(100)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        $locations->each(function ($location) use ($categories) {
+            $location->categories()->attach(
+                $categories->random(random_int(1, 3))->pluck('id')
+            );
+        });
     }
 }

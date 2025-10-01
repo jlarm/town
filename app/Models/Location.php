@@ -7,6 +7,7 @@ namespace App\Models;
 use App\Enums\State;
 use App\Observers\LocationObserver;
 use Illuminate\Database\Eloquent\Attributes\ObservedBy;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -14,7 +15,23 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 #[ObservedBy(LocationObserver::class)]
 final class Location extends Model
 {
-    use SoftDeletes;
+    use HasFactory, SoftDeletes;
+
+    public $fillable = [
+        'uuid',
+        'name',
+        'slug',
+        'description',
+        'address',
+        'city',
+        'state',
+        'phone',
+        'url',
+        'menu_url',
+        'directions_url',
+        'image',
+        'status',
+    ];
 
     public function categories(): BelongsToMany
     {
