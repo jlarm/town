@@ -92,8 +92,8 @@ php artisan make:*             # Generate boilerplate (controller, model, etc.)
 - Uses separate authentication middleware stack from main application
 
 ### Frontend Structure
-- `resources/js/app.ts` — Main Inertia app entry point
-- `resources/js/ssr.ts` — Server-side rendering entry point
+- `resources/js/app.js` — Main Inertia app entry point
+- `resources/js/ssr.js` — Server-side rendering entry point
 - `resources/js/pages/` — Vue page components (mapped to routes)
 - `resources/js/lib/` — Shared utilities and helpers
 - `resources/js/types/` — TypeScript type definitions
@@ -114,7 +114,7 @@ php artisan make:*             # Generate boilerplate (controller, model, etc.)
 
 - **Environment:** Copy `.env.example` to `.env` and configure as needed
 - **Database:** Default is SQLite (`database/database.sqlite`), change `DB_CONNECTION` for other databases
-- **Vite:** Config in `vite.config.ts` handles Inertia, Vue, Tailwind, and Wayfinder plugins
+- **Vite:** Config in `vite.config.js` handles Inertia, Vue, Tailwind, and Wayfinder plugins
 - **TypeScript:** Config in `tsconfig.json` with strict mode enabled
 
 ## Common Patterns
