@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Observers;
 
 use App\Models\Location;
 use Str;
 
-class LocationObserver
+final class LocationObserver
 {
     public function creating(Location $location): void
     {
