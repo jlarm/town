@@ -9,7 +9,7 @@ defineProps({
 <template>
     <Head title="Welcome"></Head>
     <div>
-        <InfiniteScroll data="locations" preserve-url>
+        <InfiniteScroll data="locations">
             <div class="mb-96" v-for="location in locations.data" :key="location.id">
                 {{ location.name }}
             </div>
