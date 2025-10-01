@@ -1,13 +1,18 @@
 <script setup lang="js">
-import { Head } from '@inertiajs/vue3';
+import { Head, InfiniteScroll } from '@inertiajs/vue3';
+
+defineProps({
+    locations: Object
+})
 </script>
 
 <template>
-    <Head title="Welcom">
-        <link rel="preconnect" href="https://rsms.me/" />
-        <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
-    </Head>
+    <Head title="Welcome"></Head>
     <div>
-        test
+        <InfiniteScroll data="locations" preserve-url>
+            <div class="mb-96" v-for="location in locations.data" :key="location.id">
+                {{ location.name }}
+            </div>
+        </InfiniteScroll>
     </div>
 </template>

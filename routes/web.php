@@ -2,9 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Http\Controllers\IndexController;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
-Route::get('/', function () {
-    return Inertia::render('Index');
-})->name('home');
+Route::get('/', [IndexController::class, 'index'])->name('home');
